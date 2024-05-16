@@ -1,0 +1,19 @@
+{
+    "name": "jacobprice/wp-hooks",
+    "description": "PHP-DI + OOP Hooks",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Jacobprice\\WpHooks\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jacobprice",
+            "email": "j@cobprice.com"
+        }
+    ],
+    "require": {
+        "php-di/php-di": "^7.0"
+    }
+}
