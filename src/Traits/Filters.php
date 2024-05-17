@@ -1,6 +1,6 @@
 <?php
 
-namespace Jacobprice\WpHooks;
+namespace Jacobprice\WpHooks\Traits;
 
 Trait Filters {
     protected $filters = [];

@@ -3,8 +3,8 @@
 namespace Jacobprice\WpHooks;
 
 use DI\Container;
-use Jacobprice\WpHooks\ActionInterface;
-use Jacobprice\WpHooks\FilterInterface;
+use Jacobprice\WpHooks\Interfaces\Action;
+use Jacobprice\WpHooks\Interfaces\Filter;
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;
 use CallbackFilterIterator;
@@ -49,10 +49,10 @@ class HookManager
 
             $instance = $this->container->get($hook_class);
 
-            if ($instance instanceof ActionInterface && $instance->should_load()) {
+            if ($instance instanceof Action && $instance->should_load()) {
                 $this->register_actions($instance);
             }
-            if ($instance instanceof FilterInterface && $instance->should_load()) {
+            if ($instance instanceof Filter && $instance->should_load()) {
                 $this->register_filters($instance);
             }
         }
@@ -68,7 +68,7 @@ class HookManager
         return $source;
     }
 
-    private function register_actions(ActionInterface $object): void
+    private function register_actions(Action $object): void
     {
         $actions = $object->get_actions();
         foreach ($actions as $actionDetails) {
@@ -85,7 +85,7 @@ class HookManager
         }
     }
 
-    private function register_filters(FilterInterface $object): void
+    private function register_filters(Filter $object): void
     {
         $filters = $object->get_filters();
         foreach ($filters as $filterDetails) {
