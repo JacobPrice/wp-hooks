@@ -2,9 +2,9 @@
 
 ## Installation
     
-    ```bash
-    composer require jacobprice/wp-hooks php-di/php-di
-    ```
+```bash
+composer require jacobprice/wp-hooks php-di/php-di
+```
 
 ## Usage
 ```php
@@ -27,13 +27,10 @@ $hook_manager->register_hooks();
 
 namespace ExampleNameSpace\Hooks;
 
-use Jacobprice\WpHooks\Actions;
-use Jacobprice\WpHooks\Filters;
-use Jacobprice\WpHooks\ActionInterface;
-use Jacobprice\WpHooks\FilterInterface;
+use Jacobprice\WpHooks\Interfaces\Action;
+use Jacobprice\WpHooks\Interfaces\Filter;
 
-class ExampleAction implements ActionInterface, FilterInterface {
-    use Actions, Filters;
+class ExampleAction implements Action, Filter{
     /**
      * Lazily load this hook
      */
